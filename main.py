@@ -8,7 +8,7 @@ FONT_NAME = "Courier"
 WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
-TICK = "✓"
+
 
 def main()-> None:
     window = Tk()
@@ -22,16 +22,17 @@ def main()-> None:
     canvas.create_image(100,112 ,image=tomato_img )
     timer_text = canvas.create_text(120, 125, text="00:00", fill="white", font=(FONT_NAME, 30, "bold"))
     canvas.grid(row=1, column=2)
-    pomodoros = Pomodoro(canvas=canvas, window=window, timer_text=timer_text)
+    check_mark = Label(text= "",fg=GREEN, bg=YELLOW, font=("DejaVu Sans",25))
+    check_mark.grid(row = 4, column= 1)
+
+    pomodoros = Pomodoro(canvas=canvas, window=window, timer_text=timer_text, check_mark=check_mark)
     start = Button(text="Start", font=(FONT_NAME, 14, "bold"), highlightthickness=0, bg=YELLOW, borderwidth=0, command=pomodoros.start_timer)
 
     start.grid(row=3, column=1)
     reset = Button(text="Reset", font=(FONT_NAME, 14, "bold"), highlightthickness=0, bg=YELLOW, borderwidth=0)
     reset.grid(row=3, column=3)
     
-    check_mark = Label(text= TICK,fg=GREEN, bg=YELLOW, font=("DejaVu Sans",25))
-    check_mark.grid(row = 4, column= 1)
-
+    
     window.mainloop()
 
 if __name__ == "__main__":
