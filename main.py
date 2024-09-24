@@ -12,7 +12,7 @@ def main()-> None:
     window = Tk()
     check_mark = []
     
-    window.title("Pomodoro")
+    window.title("Pomodoro App")
     window.config(padx=100, pady=50, bg=YELLOW)
     timer = Label(text="Timer", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 30, "bold"))
     timer.grid(row=0, column=2)
@@ -25,9 +25,7 @@ def main()-> None:
         checkmark = Label(text= "",fg=GREEN, bg=YELLOW, font=("DejaVu Sans",25))
         checkmark.grid(row = 4, column= i)
         check_mark.append(checkmark)
-    status = Label(text = "", fg=RED, bg=YELLOW , font=FONT_NAME)
-    status.grid(row=3, column= 2)
-    pomodoros = Pomodoro(canvas=canvas, window=window, timer_text=timer_text, check_mark=check_mark, status = status)
+    pomodoros = Pomodoro(canvas=canvas, window=window, timer_text=timer_text, check_mark=check_mark, timer = timer)
     start = Button(text="Start", font=(FONT_NAME, 14, "bold"), highlightthickness=0, bg=YELLOW, borderwidth=0, command=pomodoros.start_timer)
 
     start.grid(row=3, column=1)
